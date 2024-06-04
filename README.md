@@ -1,7 +1,7 @@
 # Laravel Project
 
 
-![alt text](https://github.com/iurecastro/project/public/print.png)
+![alt text](https://github.com/iurecastro/project/blob/main/public/print.png)
 
 
 ## Introduction and Static Pages
