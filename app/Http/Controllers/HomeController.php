@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 use App\Models\Category;
+use App\Models\Post;
 class HomeController extends Controller
 {
     //
@@ -17,10 +18,24 @@ class HomeController extends Controller
         //$allCategories = DB::table('categories')->get();
 
         // Get categories from model using Eloquent (Laravel layer)
-        $allCategories = Category::all();
+        //$allCategories = Category::all();
+
+        //Getting posts
+        //$posts = Post::orderBy('id', 'desc')->get(); 
+        
+        //Getting posts using Eloquent
+        $posts = Post::latest()->get();
 
         //return view('home');
-        return view('home', ['categories'=> $allCategories]);
+       /* return view('home', [
+            'categories'=> $allCategories,
+            'posts' => $posts
+        
+        ]);
+        */
+
+        $categories = Category::all(); 
+        return view('home', compact('categories', 'posts')); 
 
     }
 }
