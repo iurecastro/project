@@ -24,7 +24,13 @@ class HomeController extends Controller
         //$posts = Post::orderBy('id', 'desc')->get(); 
         
         //Getting posts using Eloquent
-        $posts = Post::latest()->get();
+        //$posts = Post::latest()->get();
+
+        //$posts = Post::where('category_id', request('category_id'))->latest()->get(); 
+
+        $posts = Post::when(request('category_id'), function ($query) { 
+            $query->where('category_id', request('category_id'));
+        })->latest()->get();
 
         //return view('home');
        /* return view('home', [
