@@ -106,6 +106,11 @@
                             <div class="row">
                                 <div class="col-sm-6">
                                     <ul class="list-unstyled mb-0">
+
+                                        @foreach($categories as $category)
+                                            <li><a href="#!">{{ $category }}</a></li>
+                                        @endforeach
+
                                         <li><a href="#!">Web Design</a></li>
                                         <li><a href="#!">HTML</a></li>
                                         <li><a href="#!">Freebies</a></li>
